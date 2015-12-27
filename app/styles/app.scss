@@ -5,3 +5,15 @@
 .mt50 {
   margin-top: 50px;
 }
+
+.center {
+  text-align: center;
+}
+
+ul.navbar-nav li a.active {
+  &:hover, &:focus {
+    background: #e6e6e6;
+  }
+
+  background: #e6e6e6;
+}
