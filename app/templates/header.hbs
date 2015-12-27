@@ -11,9 +11,16 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        {{#if session.isAuthenticated}}
+        <li>
+          <span>
+            Welcome, {{session.data.authenticated.data.first_name}} {{session.data.authenticated.data.last_name}}
+          </span>
+        </li>
+        {{/if}}
         <li>
           {{#if session.isAuthenticated}}
-            <a {{action 'invalidateSession'}}>Logout</a>
+            <a {{action 'invalidateSession'}} href="#">Logout</a>
           {{else}}
             {{#link-to 'login'}}Login{{/link-to}}
           {{/if}}
