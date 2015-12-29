@@ -8,7 +8,8 @@ export default Token.extend({
 
       this.makeRequest(data, headers).then((response, textStatus, request) => {
         Ember.run(() => {
-          response['token'] = request.getResponseHeader('access-token')
+          response['token'] = request.getResponseHeader('access-token');
+          response['client'] = request.getResponseHeader('client');
           resolve(this.getResponseData(response));
         });
       }, xhr => {

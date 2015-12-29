@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3 class="center">Write a Post</h3>
+  </div>
+  <div class="col-md-8 col-md-offset-2 mt50">
+    {{#if model.errors}}
+    <div class="alert alert-danger">
+      Please fix following errors:
+      <ul>
+        {{#each model.errors as |error|}}
+          <li>{{error.attribute}} {{error.message}}</li>
+        {{/each}}
+      </ul>
+    </div>
+    {{/if}}
+
+    <form {{action 'createPost' method='POST' on='submit'}}>
+      <div class="form-group">
+        <label for="heading">Heading</label>
+        {{input id='heading' class="form-control" placeholder='Heading for the post' value=model.header}}
+      </div>
+      <div class="form-group">
+        <label for="body">Body</label>
+        {{textarea id='body' class="form-control" placeholder='Express yourself...' rows='10' value=model.body}}
+      </div>
+      <button type="submit" class="btn btn-primary">Write</button>
+    </form>
+  </div>
+</div>
