@@ -1,0 +1,13 @@
+{{#if newComment.errors}}
+  <div class="alert alert-danger">
+    Please fix following errors:
+    <ul>
+      {{#each newComment.errors as |error|}}
+        <li>{{error.attribute}} {{error.message}}</li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}
+{{textarea id='body' class="form-control" placeholder='Express yourself...' rows='5' value=newComment.text}}
+<br/>
+<button {{action 'createComment' post newComment}} class="btn btn-primary">Write</button>

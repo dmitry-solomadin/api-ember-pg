@@ -5,6 +5,9 @@
 </div>
 <h3>Comments ({{post.comments.length}})</h3>
 <div class="blog-comments">
+  {{#if session.isAuthenticated}}
+    {{new-comment post=post newComment=newComment}}
+  {{/if}}
   {{#each post.comments as |comment|}}
     <div class="blog-post-comment">{{comment.text}}</div>
   {{/each}}
